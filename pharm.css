@@ -1,3 +1,39 @@
+/* Default styles for larger screens */
+.container {
+    display: flex;
+    justify-content: space-between; /* Items spaced evenly */
+    align-items: center; /* Vertically centered */
+    padding: 20px;
+}
+
+/* Adjust for tablets and smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items */
+        align-items: stretch; /* Stretch items to full width */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .item {
+        width: 100%; /* Full width on mobile */
+        text-align: center; /* Center text and content */
+        margin-bottom: 15px; /* Add spacing between items */
+    }
+}
+
+/* Further adjustments for small phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 5px; /* Further reduce padding */
+    }
+
+    .item {
+        font-size: 14px; /* Adjust font size for readability */
+        padding: 5px 0; /* Adjust padding for smaller elements */
+    }
+}
+
 body{
     margin:0;
     padding:0;
