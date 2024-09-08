@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Pharmacy</title>
+    <link rel="stylesheet" href="pharm.css">
+</head>
+<body>
+    <header>
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for medicines..." onkeyup="searchMedicines()">
+        <ul id="results"></ul>
+            </div>
+            <h1>Shop Name</h1>
+            <div class="cart-container">
+                <div class="cart-icon" id="cart-icon">
+                    <span class="cart-count" id="cart-count">0</span>
+            <img src="data:image/jpeg;base64,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">
+                    <span class="cart-amount" id="cart-amount">$0.00</span>
+                </div>
+                </div>
+            </header>
+    <div class="links-container">
+        <a href="#Medicine" class="link-item">Medicine</a>
+        <a href="#Labtest" class="link-item">LabTest</a>
+        <a href="#HealthCare" class="link-item">HealthCare</a>
+        <a href="#Wellness" class="link-item">Wellness</a>
+        <a href="#Health corner"class="link-item">Valuestore</a>    
+    </div>
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="https://assets.truemeds.in/Images/Banners/Neurobion_Web.png?tr=cm-pad_resize,bg-FFFFFF,lo-true,w-724" alt="Slide 1">
+        </div>
+        <div class="slide fade">
+            <img src="https://tm-storage-bucket-prod.s3.ap-south-1.amazonaws.com/Images/Banners/Nasoclear+Purehale_Web.png?tr=cm-pad_resize,bg-FFFFFF,lo-true,w-724" alt="Slide 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://tm-storage-bucket-prod.s3.ap-south-1.amazonaws.com/Images/Banners/myupchar_Web.png?tr=cm-pad_resize,bg-FFFFFF,lo-true,w-724" alt="Slide 3">
+        </div>
+        <div class="slide fade">
+            <img src="https://tm-storage-bucket-prod.s3.ap-south-1.amazonaws.com/Images/Banners/Vimpro_Web.png?tr=cm-pad_resize,bg-FFFFFF,lo-true,w-724" alt="slide 4">
+        </div>
+        <!-- Navigation Arrows -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="next" onclick="plusSlides(2)">&#10096;</a>
+        <a class="next" onclick="plusSlides(3)">&#10097;</a>
+        <a class="next" onclick="plusSlides(4)">&#10098;</a>
+    </div>
+
+        <h2>Categories</h2>
+    <div class="categories">
+            <ul class="category-list">
+                <li class="category-item">
+                    <img src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/f10917087a483040b557e4b18204312c.png?f=png?dim=256x0" alt="product1" class="category-image" data-product="Medicine">
+                    <span>Medicine</span>
+                </li>
+                <li class="category-item">
+                    <img src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/b61f2824dbaf306da550d80d94fbeaf4.png?f=png?dim=256x0alt" alt="product2" class="category-image" data-product="Ayurvedic Care">
+                    <span>Ayurvedic Care</span>
+                </li>
+                <li class="category-item">
+                    <img src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/3d68ecbbcbaf3aaeabd53045de49c83d.png?f=png?dim=256x0" alt="product3" class="category-image" data-product="Fitness Supplements">
+                    <span>Fitness Supplements</span>
+                </li>
+            <li class="category-item">
+                <img src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/7459ca90bd0b3877b61c782254355bf2.png?f=png?dim=256x0" alt="product4" class="category-image" data-product="Health and food drinks">
+            <span>Health and food drinks</span>
+            </li>
+            <li class="category-item">
+                <img src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/9cc9a28ea4513009966cae794114eefd.png?f=png?dim=256x0" alt="product5" class="category-image" data-product="Health care">
+                <span>Health care</span>
+            </li>
+            <li class="category-item">
+                <img src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/cecbb56823313e0da01ab967b76853b2.png?f=png?dim=256x0" alt="product6" class="category-image" data-product="Skin Care">
+            <span>Skin Care</span>
+                </li>
+            </ul>
+            </div>
+                <h2>Products</h2>
+                <div class="cart-items">
+                    <div class="product-card">
+                        <img src="https://cdn01.pharmeasy.in/dam/products_otc/K97621/himalaya-purifying-neem-face-wash-400-ml-2-1674204139.jpg?dim=1440x0" alt="Product Image">
+                        <h3>Himalaya</h3>
+                        <p>Price: $<span class="product-price">99</span></p>
+                        <button class="add-to-cart-btn" data-price="99" data-product="Himalaya">Add to cart</button>
+                    </div>
+                    
+                    <div class="product-card">
+                            <img src="https://cdn01.pharmeasy.in/dam/products_otc/M80149/cetaphil-baby-diaper-cream-70g-pack-of-3-2-1671743751.jpg?dim=1440x0" alt="">
+                                        <h3>Baby cream</h3>
+                            <p>Price: $<span class="product-price">280</span></p>
+                            <button class="add-to-cart-btn" data-price="280" data-product="Baby Cream">Add to Cart</button>
+        
+                        </div>
+                        <div class="product-card">
+                            <img src="https://cdn01.pharmeasy.in/dam/products_otc/159115/shelcal-500mg-strip-of-15-tablets-2-1679999355.jpg?dim=1440x0" alt="">
+                            <h3>Shelcal Tablet</h3>
+                            <p>Price: $<span class="product-price">200</span></p>
+                            <button class="add-to-cart-btn" data-price="200" data-product="Shelcal Tablet">Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://cms-contents.pharmeasy.in/carousel_item/611be7f660e-SugarfreeFB.png?dim=1440x0" alt="">
+                            <h3>Sugarfree</h3>
+                            <p>Price: $<span class="product-price">300</span></p>
+                            <button class="add-to-cart-btn" data-price="300" data-product="Sugarfree">Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://cdn01.pharmeasy.in/dam/products_otc/R80446/revital-cal-500mg-strip-of-15-tablets-6.1-1722492880.jpg?dim=1440x0">
+                            <h3>Revital cal</h3>
+                            <p>Price: $<span class="product-price">165</span></p>
+                            <button class="add-to-cart-btn" data-price="165" data-product="Revital cal">Add to Cart</button>
+                        </div>
+                
+                            <div class="product-card">
+                                <img src="https://cdn01.pharmeasy.in/dam/products_otc/L79986/everherb-karela-jamun-juice-helps-maintains-healthy-sugar-levels-helps-in-weight-management-1l-2-1723875556.jpg?dim=256x0">
+                            <h3>Herbs</h3>
+                            <p>Price: $<span class="product-price">470</span></p>
+                            <button class="add-to-cart-btn" data-price="470" data-product="Herbs">Add to Cart</button>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://www.netmeds.com/images/product-v1/150x150/112125/vicks_vaporub_5_ml_0.jpg" alt="">
+                                <h3>Vapour Rub</h3>
+                            <p>Price: $<span class="product-price">40</span></p>
+                            <button class="add-to-cart-btn" data-price="40" data-product="Vapour Rub">Add to Cart</button>
+                            </div>
+                            </div>
+                            <h2>Essential Products</h2>
+                            
+                            <div class="cart-items">
+                            <div class="product-card">
+                                <img src="https://images.apollo247.in/pub/media/catalog/product/D/E/DET0166_1-JULY23_1.jpg?tr=w-350,q-60,f-webp,dpr-1,c-at_max" alt="">
+                            <h3>Dettol</h3>
+                            <p>Price: $<span class="product-price">100</span></p>
+                            <button class="add-to-cart-btn" data-price="100" data-product="Dettol">Add to Cart</button>
+
+                        </div>
+                        <div class="product-card">
+                            <img src="https://images.apollo247.in/pub/media/catalog/product/K/E/KES0043_1-AUG23_1.jpg?tr=w-350,q-80,f-webp,dpr-1,c-at_max" alt="">
+                        <h3>Hairoil</h3>
+                        <p>Price: $<span class="product-price">399</span></p>
+                        <button class="add-to-cart-btn" data-price="399" data-product="Hairoil">Add to cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.apollo247.in/pub/media/catalog/product/E/N/ENS0075_1-JULY23_1.jpg?tr=w-350,q-80,f-webp,dpr-1,c-at_max" alt="">
+                        <h3>Pediasure</h3>
+                    <p>Price: $<span class="product-price">545</span></p>
+                    <button class="add-to-cart-btn" data-price="545" data-product="Pediasure">Add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.apollo247.in/pub/media/catalog/product/p/a/pam0251_1_mar_24_1_.jpg?tr=w-350,q-80,f-webp,dpr-1,c-at_max" alt="">
+                    <h3>Baby care</h3>
+                <p>Price: $<span class="product-price">200</span></p>
+                <button class="add-to-cart-btn" data-price="200" data-product="baby care">Add to cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.apollo247.in/pub/media/catalog/product/a/p/apb0018_1-sep2023_1_.jpg?tr=w-350,q-80,f-webp,dpr-1,c-at_max" alt="">
+                    <h3>Gulcose test </h3>
+                    <p>price: $<span class="product-price">786</span></p>
+                    <button class="add-to-cart-btn" data-price="786" data-product="Gulcose test">Add to cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.apollo247.in/pub/media/catalog/product/A/P/APT0042_1-JULY23_1.jpg?tr=w-350,q-80,f-webp,dpr-1,c-at_max" alt="">
+                        <h3>Tulsi Drop</h3>
+                        <p>price: $<span class="product-price">296</span></p>
+                        <button class="add-to-cart-btn" data-price="296" data-product="Tulsi Drop">Add to cart</button>
+                        </div>
+                        <div class="product-card">                             
+                        <img src="https://images.apollo247.in/pub/media/catalog/product/C/E/CET0093_1-JULY23_1.jpg?tr=w-350,q-80,f-webp,dpr-1,c-at_max" alt="">
+                        <h3>Moisture cream</h3>
+                        <p>price: $<span class="product-price">760</span></p>
+                            <button class="add-to-cart-btn" data-price="760" data-product="Moisture cream">Add to cart</button>
+                            </div>                            
+         </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>About us</h2>
+                <img src="data:image/png;base64,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"alt="">
+                <p>We are committed to providing quality medicines and healthcare products. Our mission is to ensure you receive the best service and support.</p>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p>Email: <a href="mailto:support@pharmacy.com">support@pharmacy.com</a></p>
+                <p>Phone: +1 234 567 890</p>
+                <p>Address: 123 Health St, Wellness City, HC 45678</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <h2>Newsletter</h2>
+                <form id="newsletter-form">
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Online Pharmacy. All rights reserved.</p>
+            <div class="social-media">
+                <a href="#"><img src="facebook.png" alt="Facebook" class="social-icon"></a>
+                <a href="#"><img src="youtube.png" alt="Twitter" class="social-icon"></a>
+                <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+                <a href="#"><img src="linkedin.png" alt="linkedin" class="social-icon"></a>
+                <!-- Add more social media icons as needed -->
+            </div>
+        </div>
+    </footer>
+    <script src="pharm.js"></script>
+</body>
+</html>
